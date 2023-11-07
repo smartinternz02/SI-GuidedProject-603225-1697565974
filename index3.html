@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Model Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="number"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        select {
+            height: 34px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #007BFF;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Content section styles */
+        .content {
+            flex-grow: 1;
+            display: flex;
+            background: url('pexels-oleksandr-p-1004584.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Image overlay styles */
+        .image-overlay {
+            position: relative;
+            background: url('pexels-pixabay-47044.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.8; /* Adjust opacity as needed */
+            flex: 1;
+        }
+
+        /* Right content (form) styles */
+        .right-content {
+            flex: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity to make it lighter */
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Container for header, content, and footer -->
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>ML Model Recommendation</h1>
+        </div>
+
+        <!-- Content section with image overlay -->
+        <div class="content">
+            <div class="image-overlay"></div>
+
+            <!-- Right content (form) -->
+            <div class="right-content">
+                <form id="recommendation-form" action="/get_recommendation" method="post">
+                                 <!-- Your form code here --><label for="overall_rating">Overall Rating (1-10):</label>
+        <input type="number" id="overall_rating" name="overall_rating" min="1" max="10" required><br>
+
+        <label for="seat_comfort">Seat Comfort (1-10):</label>
+        <input type="number" id="seat_comfort" name="seat_comfort" min="1" max="10" required><br>
+
+        <label for="cabin_staff_service">Cabin Staff Service (1-10):</label>
+        <input type="number" id="cabin_staff_service" name="cabin_staff_service" min="1" max="10" required><br>
+
+        <label for="food_and_beverages">Food and Beverages (1-10):</label>
+        <input type="number" id="food_and_beverages" name="food_and_beverages" min="1" max="10" required><br>
+
+        <label for="ground_service">Ground Service (1-10):</label>
+        <input type="number" id="ground_service" name="ground_service" min="1" max="10" required><br>
+
+        <label for="value_for_money">Value for Money (1-10):</label>
+        <input type="number" id="value_for_money" name="value_for_money" min="1" max="10" required><br>
+
+        <label for="seat_type">Seat Type:</label>
+        <select id="seat_type" name="seat_type">
+            <option value="Economy">Economy</option>
+            <option value="First Class">First Class</option>
+            <option value="Business">Business</option>
+            <option value="Premium Economy">Premium Economy</option>
+        </select><br>
+
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" rows="4" cols="50" required></textarea><br>
+        <input type="submit" value="Submit">
+                </form>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2023 ML Model Recommendation
+        </div>
+    </div>
+</body>
+</html>
